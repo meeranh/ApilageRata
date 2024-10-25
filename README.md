@@ -6,7 +6,7 @@
 
 ## Demo
 
-Check out the live demo of the website [here](https://meeranh.com).
+Check out the live demo of the website [here]([https://meeranh.com](https://meeranh.github.io/ApilageRata/).
 
 ## Deployment Instructions
 
