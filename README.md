@@ -1,5 +1,3 @@
-# How to Deploy Apilage Website
-
 ## Table of Contents
 
 - [Demo](#demo)
