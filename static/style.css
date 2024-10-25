@@ -1,0 +1,250 @@
+/* sinhala */
+@font-face {
+  font-family: 'Noto Sans Sinhala';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/notosanssinhala/v26/yMJ2MJBya43H0SUF_WmcBEEf4rQVO2P524V5N_MxQzQtb-tf5dJbC30Fu9zUwg2a1kIBpawb.woff2) format('woff2');
+  unicode-range: U+0964-0965, U+0D81-0DF4, U+1CF2, U+200C-200D, U+25CC, U+111E1-111F4;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Sans Sinhala';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/notosanssinhala/v26/yMJ2MJBya43H0SUF_WmcBEEf4rQVO2P524V5N_MxQzQtb-tf5dJbC30Fu9zUwg2a1lEBpawb.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Sans Sinhala';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/notosanssinhala/v26/yMJ2MJBya43H0SUF_WmcBEEf4rQVO2P524V5N_MxQzQtb-tf5dJbC30Fu9zUwg2a1l8BpQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+/* Reset default margins and paddings */
+* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+}
+
+/* Set the body to occupy full width and height */
+body, html {
+		width: 100%;
+		min-height: 100%;
+		font-family: 'Noto Sans Sinhala', sans-serif;
+		background: linear-gradient(-45deg, #f5f7fa, #c3cfe2, #a1c4fd, #c2e9fb);
+		background-size: 400% 400%;
+		animation: gradientBG 15s ease infinite, flickerBG 3s steps(2, start) infinite;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		/* Removed overflow: hidden; */
+}
+
+/* Keyframes for the background gradient animation */
+@keyframes gradientBG {
+		0% {
+				background-position: 0% 50%;
+		}
+		50% {
+				background-position: 100% 50%;
+		}
+		100% {
+				background-position: 0% 50%;
+		}
+}
+
+/* Keyframes for the background flicker effect */
+@keyframes flickerBG {
+		0%, 20%, 40%, 60%, 80%, 100% {
+				opacity: 1;
+		}
+		10%, 30%, 50%, 70%, 90% {
+				opacity: 0.8;
+		}
+}
+
+/* Container to hold the message and orbiting images */
+.container {
+		position: relative;
+		width: 80vw; /* Responsive width */
+		max-width: 600px; /* Maximum width */
+		height: 80vw; /* Responsive height maintaining aspect ratio */
+		max-height: 600px; /* Maximum height */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+}
+
+/* Orbit div that will rotate */
+.orbit {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		animation: rotateOrbit 12s linear infinite; /* Adjust duration as needed */
+}
+
+/* Keyframes for rotating the orbit */
+@keyframes rotateOrbit {
+		from {
+				transform: rotate(0deg);
+		}
+		to {
+				transform: rotate(360deg);
+		}
+}
+
+/* Style for the orbiting images */
+.orbit-image {
+		position: absolute;
+		width: 15%; /* Responsive size */
+		height: auto; /* Maintain aspect ratio */
+}
+
+/* Position Image 1 at the top center */
+.image1 {
+		top: 0;
+		left: 50%;
+		transform: translate(-50%, -50%);
+}
+
+/* Position Image 2 at the bottom center */
+.image2 {
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, 50%);
+}
+
+/* Style the message container */
+.message {
+		background: rgba(255, 255, 255, 0.85);
+		padding: 5% 8%; /* Responsive padding */
+		border-radius: 12px;
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+		text-align: center;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		position: relative;
+		z-index: 1;
+		overflow: hidden;
+		max-width: 80%; /* Ensure it doesn't exceed container width */
+}
+
+/* Enhanced hover effect for interactivity */
+.message:hover {
+		transform: translateY(-10px) scale(1.02);
+		box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+		background: rgba(255, 255, 255, 0.95);
+}
+
+/* Style the text with glitch effect */
+.message h1 {
+		font-size: 2.5rem;
+		color: #333;
+		margin-bottom: 20px;
+		position: relative;
+		display: inline-block;
+		animation: glitch 1s infinite;
+		max-width: 100%;
+		word-wrap: break-word;
+}
+
+/* Glitch effect keyframes */
+@keyframes glitch {
+		0% {
+				text-shadow: 2px 2px #ff0000;
+				transform: translate(0);
+		}
+		20% {
+				text-shadow: -2px -2px #00ff00;
+				transform: translate(-2px, 2px);
+		}
+		40% {
+				text-shadow: 2px -2px #0000ff;
+				transform: translate(2px, -2px);
+		}
+		60% {
+				text-shadow: -2px 2px #ff00ff;
+				transform: translate(-2px, 2px);
+		}
+		80% {
+				text-shadow: 2px 2px #00ffff;
+				transform: translate(2px, -2px);
+		}
+		100% {
+				text-shadow: -2px -2px #ffff00;
+				transform: translate(0);
+		}
+}
+
+/* Optional: Particle animation for added depth */
+.particle {
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		background: rgba(255, 255, 255, 0.7);
+		border-radius: 50%;
+		animation: float 6s infinite, colorChange 4s infinite;
+}
+
+/* Particle positions and delays */
+.particle:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+.particle:nth-child(2) { top: 30%; left: 80%; animation-delay: 2s; }
+.particle:nth-child(3) { top: 50%; left: 40%; animation-delay: 4s; }
+.particle:nth-child(4) { top: 70%; left: 60%; animation-delay: 1s; }
+.particle:nth-child(5) { top: 90%; left: 10%; animation-delay: 3s; }
+
+/* Keyframes for particle floating */
+@keyframes float {
+		0% {
+				transform: translateY(0) scale(1);
+				opacity: 0.7;
+		}
+		50% {
+				transform: translateY(-20px) scale(1.2);
+				opacity: 0.5;
+		}
+		100% {
+				transform: translateY(0) scale(1);
+				opacity: 0.7;
+		}
+}
+
+/* Keyframes for particle color changing */
+@keyframes colorChange {
+		0% { background: rgba(255, 255, 255, 0.7); }
+		25% { background: rgba(255, 0, 0, 0.7); }
+		50% { background: rgba(0, 255, 0, 0.7); }
+		75% { background: rgba(0, 0, 255, 0.7); }
+		100% { background: rgba(255, 255, 255, 0.7); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+		.container {
+				width: 90vw;
+				height: 90vw;
+		}
+
+		.message {
+				padding: 10% 5%;
+		}
+
+		.message h1 {
+				font-size: 1.5rem;
+		}
+
+		.orbit-image {
+				width: 20%;
+		}
+}
+
