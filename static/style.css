@@ -29,7 +29,6 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-
 /* Reset default margins and paddings */
 * {
 		margin: 0;
@@ -37,10 +36,9 @@
 		box-sizing: border-box;
 }
 
-/* Set the body to occupy full width and height */
+/* Set the body to occupy full height and apply an animated gradient background */
 body, html {
-		width: 100%;
-		min-height: 100%;
+		height: 100%;
 		font-family: 'Noto Sans Sinhala', sans-serif;
 		background: linear-gradient(-45deg, #f5f7fa, #c3cfe2, #a1c4fd, #c2e9fb);
 		background-size: 400% 400%;
@@ -48,7 +46,7 @@ body, html {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		/* Removed overflow: hidden; */
+		overflow: hidden;
 }
 
 /* Keyframes for the background gradient animation */
@@ -77,10 +75,8 @@ body, html {
 /* Container to hold the message and orbiting images */
 .container {
 		position: relative;
-		width: 80vw; /* Responsive width */
-		max-width: 600px; /* Maximum width */
-		height: 80vw; /* Responsive height maintaining aspect ratio */
-		max-height: 600px; /* Maximum height */
+		width: 400px; /* Adjust as needed */
+		height: 400px; /* Adjust as needed */
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -91,7 +87,7 @@ body, html {
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		animation: rotateOrbit 12s linear infinite; /* Adjust duration as needed */
+		animation: rotateOrbit 10s linear infinite; /* Adjust duration as needed */
 }
 
 /* Keyframes for rotating the orbit */
@@ -107,8 +103,8 @@ body, html {
 /* Style for the orbiting images */
 .orbit-image {
 		position: absolute;
-		width: 15%; /* Responsive size */
-		height: auto; /* Maintain aspect ratio */
+		width: 100px;
+		height: 100px;
 }
 
 /* Position Image 1 at the top center */
@@ -122,13 +118,13 @@ body, html {
 .image2 {
 		bottom: 0;
 		left: 50%;
-		transform: rotate(180deg);
+		transform: translate(-50%, 50%);
 }
 
 /* Style the message container */
 .message {
 		background: rgba(255, 255, 255, 0.85);
-		padding: 5% 8%; /* Responsive padding */
+		padding: 40px 60px;
 		border-radius: 12px;
 		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
 		text-align: center;
@@ -136,7 +132,6 @@ body, html {
 		position: relative;
 		z-index: 1;
 		overflow: hidden;
-		max-width: 80%; /* Ensure it doesn't exceed container width */
 }
 
 /* Enhanced hover effect for interactivity */
@@ -154,8 +149,6 @@ body, html {
 		position: relative;
 		display: inline-block;
 		animation: glitch 1s infinite;
-		max-width: 100%;
-		word-wrap: break-word;
 }
 
 /* Glitch effect keyframes */
@@ -186,7 +179,7 @@ body, html {
 		}
 }
 
-/* Optional: Particle animation for added depth */
+/* Optional: Particle animation for added depth with weird behavior */
 .particle {
 		position: absolute;
 		width: 10px;
@@ -196,7 +189,7 @@ body, html {
 		animation: float 6s infinite, colorChange 4s infinite;
 }
 
-/* Particle positions and delays */
+/* Generate multiple particles with varying positions and animation delays */
 .particle:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
 .particle:nth-child(2) { top: 30%; left: 80%; animation-delay: 2s; }
 .particle:nth-child(3) { top: 50%; left: 40%; animation-delay: 4s; }
@@ -219,7 +212,7 @@ body, html {
 		}
 }
 
-/* Keyframes for particle color changing */
+/* Keyframes for particle color changing to add weirdness */
 @keyframes colorChange {
 		0% { background: rgba(255, 255, 255, 0.7); }
 		25% { background: rgba(255, 0, 0, 0.7); }
@@ -231,19 +224,16 @@ body, html {
 /* Responsive adjustments */
 @media (max-width: 600px) {
 		.container {
-				width: 90vw;
-				height: 90vw;
+				width: 300px;
+				height: 300px;
 		}
 
 		.message {
-				padding: 10% 5%;
+				padding: 20px 30px;
 		}
 
 		.message h1 {
-				font-size: 1.5rem;
-		}
-
-		.orbit-image {
-				width: 20%;
+				font-size: 2rem;
 		}
 }
+
